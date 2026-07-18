@@ -56,10 +56,6 @@
             opacity: 1;
             transform: translateX(4px);
         }
-        /* Ajuste para o container do logotipo */
-        .glow-ring {
-            background: radial-gradient(circle at center, rgba(138, 92, 246, 0.3) 0%, transparent 70%);
-        }
     </style>
 </head>
 <body class="min-h-screen text-slate-100 flex flex-col items-center justify-between p-6">
@@ -143,7 +139,7 @@
                 <i class="fas fa-chevron-right text-sm"></i>
             </a>
 
-            <!-- Botão Cardápio Açougue (NOVO) -->
+            <!-- Botão Cardápio Açougue -->
             <a 
                 id="btn-acougue"
                 href="#"
@@ -155,6 +151,21 @@
                     <i class="fas fa-drumstick-bite text-lg"></i>
                 </div>
                 <span class="btn-text ml-3">Cardápio Açougue</span>
+                <i class="fas fa-chevron-right text-sm"></i>
+            </a>
+
+            <!-- Botão Cardápio Pizzaria (NOVO) -->
+            <a 
+                id="btn-pizzaria"
+                href="#"
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="btn-link flex items-center w-full px-5 py-3.5 rounded-xl"
+            >
+                <div class="icon-wrapper">
+                    <i class="fas fa-pizza-slice text-lg"></i>
+                </div>
+                <span class="btn-text ml-3">Cardápio Pizzaria</span>
                 <i class="fas fa-chevron-right text-sm"></i>
             </a>
 
@@ -180,10 +191,10 @@
                 menu: 'aHR0cHM6Ly9sdWNpYW5vMDUwNDE5ODMtY2xvdWQuZ2l0aHViLmlvL2NhcmRhcGlvLWRlbW9uc3RyYWNhby8=',
                 sales: 'aHR0cHM6Ly9sdWNpYW5vMDUwNDE5ODMtY2xvdWQuZ2l0aHViLmlvL01pbmktUHJvamV0b3ItUG9ydGF0aWwv',
                 pastelaria: 'aHR0cHM6Ly9sdWNpYW5vMDUwNDE5ODMtY2xvdWQuZ2l0aHViLmlvL2NhcmRhcGlvLXBhc3RlbGFyaWEtZGVtb25zdHJhY2FvLw==',
-                acougue: 'aHR0cHM6Ly9sdWNpYW5vMDUwNDE5ODMtY2xvdWQuZ2l0aHViLmlvL2Fjb3VndWUtY2FyZGFwaW8tZGVtb25zdHJhY2FvLw=='
+                acougue: 'aHR0cHM6Ly9sdWNpYW5vMDUwNDE5ODMtY2xvdWQuZ2l0aHViLmlvL2Fjb3VndWUtY2FyZGFwaW8tZGVtb25zdHJhY2FvLw==',
+                pizzaria: 'aHR0cHM6Ly9sdWNpYW5vMDUwNDE5ODMtY2xvdWQuZ2l0aHViLmlvL2NhcmRhcGlvLXBpenphcmlhLWRlbW9uc3RyYWNhby8='
             };
 
-            // Decodifica Base64 (suporta textos com caracteres especiais)
             function decodeBase64(str) {
                 try {
                     return atob(str);
@@ -193,18 +204,19 @@
                 }
             }
 
-            // Obtém cada botão pelo ID e injeta o link real
             const btnWhatsapp = document.getElementById('btn-whatsapp');
             const btnMenu = document.getElementById('btn-menu');
             const btnSales = document.getElementById('btn-sales');
             const btnPastelaria = document.getElementById('btn-pastelaria');
             const btnAcougue = document.getElementById('btn-acougue');
+            const btnPizzaria = document.getElementById('btn-pizzaria');
 
             if (btnWhatsapp) btnWhatsapp.href = decodeBase64(encodedUrls.whatsapp);
             if (btnMenu) btnMenu.href = decodeBase64(encodedUrls.menu);
             if (btnSales) btnSales.href = decodeBase64(encodedUrls.sales);
             if (btnPastelaria) btnPastelaria.href = decodeBase64(encodedUrls.pastelaria);
             if (btnAcougue) btnAcougue.href = decodeBase64(encodedUrls.acougue);
+            if (btnPizzaria) btnPizzaria.href = decodeBase64(encodedUrls.pizzaria);
         })();
     </script>
 </body>
