@@ -263,6 +263,175 @@
             .section-title { font-size: 1rem; }
             .section-sub { font-size: 0.8rem; }
         }
+
+        /* --- Seção persuasiva (benefícios) --- */
+        .benefits-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            padding: 20px 20px 18px;
+            margin-top: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(4px);
+            width: 100%;
+            text-align: left;
+        }
+        .benefits-section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #e0e0ff;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .benefits-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #c4c4e0;
+            font-size: 0.95rem;
+        }
+        .benefit-item i {
+            color: #a78bfa;
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+        .benefit-item strong {
+            color: #f0f0ff;
+        }
+        @media (min-width: 480px) {
+            .benefits-grid {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            .benefit-item {
+                flex: 1;
+                justify-content: center;
+            }
+        }
+
+        /* --- LETREIRO DE ANUNCIANTES --- */
+        .ad-container {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            padding: 20px 16px 18px;
+            margin-top: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(4px);
+            width: 100%;
+            text-align: center;
+        }
+        .ad-container .ad-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #e0e0ff;
+            margin-bottom: 4px;
+        }
+        .ad-container .ad-title i {
+            color: #a78bfa;
+            margin-right: 8px;
+        }
+        .ad-container .ad-sub {
+            font-size: 0.85rem;
+            color: #8a8aaa;
+            margin-bottom: 14px;
+        }
+
+        /* Letreiro deslizante (carrossel de anúncios) */
+        .ad-carousel {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #0f0f1f;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            aspect-ratio: 16 / 4; /* formato 16:4 */
+            position: relative;
+        }
+        .ad-track {
+            display: flex;
+            width: 200%; /* 2 slides */
+            height: 100%;
+            animation: adSlide 8s infinite ease-in-out;
+        }
+        .ad-slide {
+            width: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 6px;
+            color: #c4c4e0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 12px;
+        }
+        .ad-slide i {
+            font-size: 2.2rem;
+            color: #a78bfa;
+            opacity: 0.7;
+        }
+        .ad-slide .ad-label {
+            font-size: 0.95rem;
+            color: #8a8aaa;
+        }
+        .ad-slide .ad-cta-text {
+            font-size: 1rem;
+            color: #f0f0ff;
+            font-weight: 600;
+        }
+        /* Cores diferentes para cada slide */
+        .ad-slide-1 {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(37, 211, 102, 0.10));
+        }
+        .ad-slide-2 {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.15), rgba(124, 58, 237, 0.10));
+        }
+
+        @keyframes adSlide {
+            0%, 40% { transform: translateX(0); }
+            50%, 90% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .ad-carousel:hover .ad-track {
+            animation-play-state: paused;
+        }
+
+        /* Botão CTA para anunciar */
+        .ad-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #f0f0ff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin-top: 12px;
+        }
+        .ad-cta-btn:hover {
+            background: rgba(255, 255, 255, 0.14);
+            border-color: #a78bfa;
+            transform: scale(1.02);
+        }
+        .ad-cta-btn i {
+            color: #a78bfa;
+        }
+
+        @media (max-width: 480px) {
+            .ad-slide i { font-size: 1.6rem; }
+            .ad-slide .ad-label { font-size: 0.8rem; }
+            .ad-slide .ad-cta-text { font-size: 0.85rem; }
+        }
     </style>
 </head>
 <body class="min-h-screen text-slate-100 flex flex-col items-center justify-between p-6">
@@ -435,6 +604,77 @@
                 <i class="fas fa-chevron-right text-sm"></i>
             </a>
 
+            <!-- Botão Cardápio Hamburgueria -->
+            <a 
+                id="btn-hamburgueria"
+                href="#"
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="btn-link flex items-center w-full px-5 py-3.5 rounded-xl"
+            >
+                <div class="icon-wrapper">
+                    <i class="fas fa-hamburger text-lg"></i>
+                </div>
+                <span class="btn-text ml-3">Cardápio Hamburgueria</span>
+                <i class="fas fa-chevron-right text-sm"></i>
+            </a>
+
+        </div>
+
+        <!-- ========================================================== -->
+        <!-- LETREIRO DE ANUNCIANTES (logo abaixo dos botões)            -->
+        <!-- ========================================================== -->
+        <div class="ad-container">
+            <div class="ad-title">
+                <i class="fas fa-ad"></i> Espaço para Anunciantes
+            </div>
+            <div class="ad-sub">
+                Divulgue seu negócio aqui — entre em contato e garanta sua vaga.
+            </div>
+
+            <!-- Carrossel de anúncios (2 slides) -->
+            <div class="ad-carousel">
+                <div class="ad-track">
+                    <!-- Slide 1 -->
+                    <div class="ad-slide ad-slide-1">
+                        <i class="fas fa-store"></i>
+                        <span class="ad-cta-text">Seu anúncio aqui</span>
+                        <span class="ad-label">Destaque sua marca</span>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="ad-slide ad-slide-2">
+                        <i class="fas fa-bullhorn"></i>
+                        <span class="ad-cta-text">Seu anúncio aqui</span>
+                        <span class="ad-label">Público qualificado</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA para anunciar -->
+            <a href="https://wa.me/5534991058994" target="_blank" rel="noopener noreferrer" class="ad-cta-btn">
+                <i class="fab fa-whatsapp"></i> Quero anunciar
+            </a>
+        </div>
+
+        <!-- ========================================================== -->
+        <!-- SEÇÃO PERSUASIVA – Benefícios do cardápio digital           -->
+        <!-- ========================================================== -->
+        <div class="benefits-section">
+            <h3>🚀 Por que ter um cardápio digital?</h3>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <span><strong>Sem comissão</strong> – fique com 100% do lucro</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-comment-dots"></i>
+                    <span><strong>Pedidos direto</strong> no WhatsApp</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span><strong>Fácil e rápido</strong> – clientes acessam em segundos</span>
+                </div>
+            </div>
         </div>
 
     </main>
@@ -465,6 +705,7 @@
                 pastelaria: 'aHR0cHM6Ly9sdWNpYW5vMDUwNDE5ODMtY2xvdWQuZ2l0aHViLmlvL2NhcmRhcGlvLXBhc3RlbGFyaWEtZGVtb25zdHJhY2FvLw==',
                 acougue: 'aHR0cHM6Ly9sdWNpYW5vMDUwNDE5ODMtY2xvdWQuZ2l0aHViLmlvL2Fjb3VndWUtY2FyZGFwaW8tZGVtb25zdHJhY2FvLw==',
                 pizzaria: 'aHR0cHM6Ly9sdWNpYW5vMDUwNDE5ODMtY2xvdWQuZ2l0aHViLmlvL2NhcmRhcGlvLXBpenphcmlhLWRlbW9uc3RyYWNhby8=',
+                hamburgueria: 'aHR0cHM6Ly9sdWNpYW5vMDUwNDE5ODMtY2xvdWQuZ2l0aHViLmlvL2NhcmRhcGlvLWhhbWJ1cmd1ZXJpYS1kZW1vc3RyYXRpdm9zLw==',
                 carousel1: 'aHR0cHM6Ly93YS5tZS81NTM0OTkyODIwOTkw',
                 carousel2: 'aHR0cHM6Ly93YS5tZS81NTM0OTkyMDYyMzU1'
             };
@@ -478,12 +719,14 @@
             const btnPastelaria = document.getElementById('btn-pastelaria');
             const btnAcougue = document.getElementById('btn-acougue');
             const btnPizzaria = document.getElementById('btn-pizzaria');
+            const btnHamburgueria = document.getElementById('btn-hamburgueria');
 
             if (btnMenu) btnMenu.href = decodeBase64(encodedUrls.menu);
             if (btnSales) btnSales.href = decodeBase64(encodedUrls.sales);
             if (btnPastelaria) btnPastelaria.href = decodeBase64(encodedUrls.pastelaria);
             if (btnAcougue) btnAcougue.href = decodeBase64(encodedUrls.acougue);
             if (btnPizzaria) btnPizzaria.href = decodeBase64(encodedUrls.pizzaria);
+            if (btnHamburgueria) btnHamburgueria.href = decodeBase64(encodedUrls.hamburgueria);
 
             const whatsappFloat = document.getElementById('whatsapp-float');
             if (whatsappFloat) whatsappFloat.href = decodeBase64(encodedUrls.whatsappFloat);
